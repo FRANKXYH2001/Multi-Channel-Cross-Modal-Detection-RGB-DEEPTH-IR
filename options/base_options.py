@@ -11,10 +11,12 @@ class BaseOptions():
         parser.add_argument('--output_dir', type=str, help='output path')
         parser.add_argument('--protocol_dir', type=str, default='', help='path to where the protocols are stored')
         parser.add_argument('--protocol_name', type=str, default='', help='name of protocol, e.g. default_stylegan2')
-        parser.add_argument('--architecture', type=str, default='one_stream', help='name of architecture: options, one_stream or two_stream')
+        parser.add_argument('--architecture', type=str, default='two_stream', help='name of architecture: options, one_stream or two_stream')
         parser.add_argument('--is_aligned', action='store_true', help='should be true if the images are already resolution 224x224 and the face images has been aligned')
         parser.add_argument('--gpu_id', type=int, default=0, help='gpu ids: e.g. 0. use -1 for CPU')
-        parser.add_argument('--spectra', type=str, default="rgb", help='specify the spectra to use. "rgb, fft or multi"')
+        parser.add_argument('--branch1_channel', type=str, required=True, choices=['rgb', 'depth', 'ir'], help='Channel type for branch 1')
+        parser.add_argument('--branch2_channel', type=str, required=True, choices=['rgb', 'depth', 'ir'], help='Channel type for branch 2')
+        parser.add_argument('--spectra', type=str, default="rgb", help='specify the spectra to use. "rgb, depth or ir"')
         return parser
 
 
