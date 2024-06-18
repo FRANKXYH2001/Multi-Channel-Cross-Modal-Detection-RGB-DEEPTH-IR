@@ -9,7 +9,7 @@ from copy import deepcopy
 import warnings
 import os
 warnings.filterwarnings("ignore")
-from architectures.MultiStreamDenseNet import MultiStreamDenseNet
+from architectures.MultiStreamResNet import MultiStreamResNet
 from architectures.OneStreamDenseNet import OneStreamDenseNet
 
 class TrainerConfig():
@@ -20,7 +20,7 @@ class TrainerConfig():
     def __init__(self, train_args):
         self.args = train_args
         
-        architectures = dict({'two_stream': MultiStreamDenseNet, 'one_stream': OneStreamDenseNet}) # supported architectures
+        architectures = dict({'two_stream': MultiStreamResNet, 'one_stream': OneStreamDenseNet}) # supported architectures
         loss_types =  {"bce", "cmfl"}
         allowed_channels =  {"rgb", "depth", "ir"}
 
